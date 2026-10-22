@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>禮賢會恩慈學校 - 歡迎到訪</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-yellow: #FFD23F;
+      --primary-orange: #FF9F1C;
+      --primary-blue: #4EA8DE;
+      --deep-blue: #0077B6;
+      --bg-cream: #FFF9EC;
+      --card-bg: #FFFFFF;
+      --text-main: #1A1C29;
+      --text-muted: #222222;
+      --accent-pink: #FF70A6;
+      --accent-green: #06D6A0;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 10px 25px rgba(255, 159, 28, 0.12);
+      --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', 'Fredoka', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      display: flex;
+      min-height: 100vh;
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(255, 210, 63, 0.25) 0%, transparent 20%),
+        radial-gradient(circle at 90% 90%, rgba(78, 168, 222, 0.25) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(255, 112, 166, 0.15) 0%, transparent 50%);
+    }
+
+    /* 简体模式下全页强制使用标楷体/楷体 */
+    body.lang-cn, 
+    body.lang-cn button, 
+    body.lang-cn input, 
+    body.lang-cn textarea, 
+    body.lang-cn select {
+      font-family: "標楷體", "BiauKai", "DFKai-SB", "KaiTi", "楷体", STKaiti, serif !important;
+    }
+
+    .shapes-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-shape {
+      position: absolute;
+      pointer-events: none;
+      animation: twinkleFloat 2.5s infinite ease-in-out alternate;
+    }
+
+    .shape-1  { top: 25px; right: 60px; font-size: 2.2rem; color: var(--primary-yellow); animation-delay: 0s; }
+    .shape-2  { bottom: 40px; left: 270px; font-size: 2.5rem; color: var(--accent-pink); animation-delay: 0.8s; }
+    .shape-3  { top: 45%; right: 35px; font-size: 1.8rem; color: var(--accent-green); animation-delay: 1.5s; }
+    .shape-4  { top: 12%; left: 320px; font-size: 1.6rem; color: var(--primary-blue); animation-delay: 0.4s; }
+    .shape-5  { bottom: 18%; right: 100px; font-size: 2.2rem; color: var(--primary-orange); animation-delay: 1.2s; }
+    .shape-6  { top: 62%; left: 30px; font-size: 1.8rem; color: var(--primary-yellow); animation-delay: 0.9s; }
+    .shape-7  { top: 75px; left: 45%; font-size: 1.5rem; color: var(--accent-pink); animation-delay: 1.7s; }
+    .shape-8  { top: 20%; left: 80px; font-size: 2.2rem; color: var(--accent-pink); animation-delay: 0.3s; }
+    .shape-9  { bottom: 30%; left: 480px; font-size: 1.7rem; color: var(--primary-yellow); animation-delay: 1.1s; }
+    .shape-10 { top: 30%; right: 320px; font-size: 2.4rem; color: var(--accent-pink); animation-delay: 0.6s; }
+    .shape-11 { bottom: 12%; left: 60px; font-size: 2.0rem; color: var(--primary-blue); animation-delay: 1.4s; }
+    .shape-12 { top: 80%; right: 280px; font-size: 1.9rem; color: var(--accent-green); animation-delay: 0.2s; }
+    .shape-13 { top: 8%; right: 220px; font-size: 2.6rem; color: var(--primary-yellow); animation-delay: 1.8s; }
+    .shape-14 { top: 50%; left: 220px; font-size: 1.6rem; color: var(--accent-pink); animation-delay: 0.7s; }
+    .shape-15 { bottom: 8%; right: 45%; font-size: 2.1rem; color: var(--primary-orange); animation-delay: 1.3s; }
+
+    @keyframes twinkleFloat {
+      0% {
+        transform: translateY(0) scale(0.7) rotate(0deg);
+        opacity: 0.3;
+        filter: drop-shadow(0 0 2px rgba(255,210,63,0.3));
+      }
+      50% {
+        opacity: 0.95;
+        filter: drop-shadow(0 0 10px rgba(255,112,166,0.8));
+      }
+      100% {
+        transform: translateY(-14px) scale(1.25) rotate(20deg);
+        opacity: 0.65;
+        filter: drop-shadow(0 0 8px rgba(255,210,63,0.6));
+      }
+    }
+
+    .app-container {
+      display: flex;
+      width: 100vw;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: var(--card-bg);
+      border-right: 4px solid #FFE8B5;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
+      z-index: 100;
+      flex-shrink: 0;
+      transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s, transform 0.3s;
+    }
+
+    .sidebar.collapsed {
+      margin-left: -250px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .sidebar-header {
+      padding: 16px 12px 12px;
+      background: linear-gradient(135deg, #FFF4CC 0%, #FFE599 100%);
+      border-bottom: 3px dashed var(--primary-yellow);
+      text-align: center;
+    }
+
+    .school-mini-logo {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    }
+
+    .sidebar-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #7A4B00;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-orange);
+      margin-top: 2px;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 10px 8px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .nav-item {
+      margin-bottom: 6px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.05rem;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .nav-link i {
+      font-size: 1.15rem;
+      margin-right: 8px;
+      width: 20px;
+      text-align: center;
+      color: var(--primary-blue);
+      transition: transform 0.2s;
+    }
+
+    .nav-link .page-num {
+      font-size: 0.85rem;
+      background: #EBF5FF;
+      color: var(--deep-blue);
+      padding: 2px 7px;
+      border-radius: 8px;
+      margin-left: auto;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .nav-link:hover {
+      background-color: #FFF4E5;
+      color: var(--primary-orange);
+      transform: translateX(3px);
+    }
+
+    .nav-link.active {
+      background: linear-gradient(90deg, #FF9F1C 0%, #FFBF69 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 159, 28, 0.3);
+      border-color: #FF8800;
+    }
+
+    .nav-link.active i {
+      color: white;
+      transform: scale(1.15);
+    }
+
+    .nav-link.active .page-num {
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .content-header {
+      padding: 12px 28px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #FFE8B5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    .header-right-tools {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      background: #FFF4CC;
+      border: 2px solid var(--primary-yellow);
+      border-radius: 20px;
+      padding: 3px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 12px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      color: #7A4B00;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--primary-orange);
+      color: white;
+      box-shadow: 0 2px 6px rgba(255, 159, 28, 0.4);
+    }
+
+    .toggle-sidebar-btn {
+      background: #FFF4CC;
+      border: 2px solid var(--primary-yellow);
+      color: #7A4B00;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: 15px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .toggle-sidebar-btn:hover {
+      background: var(--primary-yellow);
+      transform: scale(1.05);
+    }
+
+    .header-info h1 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-badge {
+      background: var(--primary-yellow);
+      color: #5C4000;
+      font-size: 1.1rem;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .content-body {
+      flex: 1;
+      padding: 20px 30px;
+      overflow-y: auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    .page-pane {
+      display: none;
+      animation: fadeInScale 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page-pane.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .side-by-side-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .side-illustration-box {
+      flex: 0 0 38%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .theme-illustration-large {
+      width: 100%;
+      max-width: 580px;
+      max-height: 480px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 20px;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      height: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      pointer-events: none;
+    }
+
+    .slide-img.active-slide {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .side-content-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px;
+      box-shadow: var(--shadow-soft);
+      border: 3px solid #FFF0D4;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .card-header-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+      color: white;
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .welcome-card {
+      text-align: center;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF5 100%);
+      padding: 25px;
+      margin-bottom: 0;
+    }
+
+    .welcome-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #1A1C29;
+      margin: 8px 0;
+    }
+
+    .date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #E8F5E9;
+      color: #1B5E20;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 900;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .logo-item {
+      background: white;
+      border: 2px dashed #FFD23F;
+      border-radius: var(--radius-md);
+      padding: 8px;
+      text-align: center;
+    }
+
+    .logo-img {
+      max-width: 100%;
+      height: 55px;
+      object-fit: contain;
+      margin-bottom: 4px;
+    }
+
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+
+    .notice-box-side {
+      background: #FFF0F5;
+      border: 3px dashed var(--accent-pink);
+      border-radius: var(--radius-lg);
+      padding: 35px 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      position: relative;
+      width: 100%;
+    }
+
+    .notice-icon {
+      font-size: 4rem;
+      color: var(--accent-pink);
+      margin-bottom: 15px;
+    }
+
+    .notice-text {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #800020;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .notice-link-btn {
+      background: linear-gradient(135deg, var(--accent-pink), #E6005C);
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 16px rgba(255, 112, 166, 0.4);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .notice-link-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 22px rgba(255, 112, 166, 0.6);
+      background: linear-gradient(135deg, #FF4081, #C2185B);
+    }
+
+    .speaker-card {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);
+      border: 3px solid #90CAF9;
+    }
+
+    .speaker-avatar {
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      box-shadow: 0 8px 16px rgba(78, 168, 222, 0.3);
+      flex-shrink: 0;
+    }
+
+    .speaker-title {
+      font-size: 1.4rem;
+      color: var(--deep-blue);
+      font-weight: 900;
+    }
+
+    .speaker-name {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-top: 2px;
+    }
+
+    .show-card-side {
+      background: linear-gradient(135deg, #FFF3E0 0%, #FFFFFF 100%);
+      border: 3px solid #FFB74D;
+      text-align: left;
+      padding: 16px 22px;
+      margin-bottom: 14px;
+      border-radius: var(--radius-md);
+      width: 100%;
+    }
+
+    .show-badge {
+      background: var(--primary-orange);
+      color: white;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .show-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #E65100;
+      margin-bottom: 2px;
+    }
+
+    .show-grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .show-card-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 3px solid #FFE5B4;
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .facility-header-box {
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-lg);
+      border: 2px dashed var(--primary-yellow);
+    }
+
+    .facility-illustration-top {
+      max-width: 580px;
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 15px rgba(0,0,0,0.12));
+    }
+
+    .facility-single-column {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+
+    .facility-card-row {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 3px solid #FFE0B2;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .facility-card-row:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(255, 159, 28, 0.2);
+    }
+
+    .facility-img-row {
+      width: 380px;
+      height: 230px;
+      object-fit: cover;
+      background: #F0F0F0;
+      flex-shrink: 0;
+    }
+
+    .facility-info-row {
+      padding: 24px 30px;
+      flex: 1;
+    }
+
+    .facility-name {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+
+    .facility-desc {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #222222;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .life-card-large {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 3px solid #FFE5B4;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .life-card-large:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    }
+
+    .life-img-large {
+      width: 340px;
+      max-width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+      border: 3px solid #FFF0D4;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .play-btn {
+      background: linear-gradient(135deg, var(--primary-orange), #FF8800);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 1.25rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 16px rgba(255, 159, 28, 0.4);
+      transition: all 0.2s;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 159, 28, 0.5);
+    }
+
+    .video-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .video-modal-overlay.active {
+      display: flex;
+    }
+
+    .video-modal-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      background: #000;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      border: 4px solid var(--primary-yellow);
+    }
+
+    .video-modal-container video {
+      width: 100%;
+      max-height: 80vh;
+      display: block;
+      outline: none;
+      object-fit: contain;
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 45px;
+      height: 45px;
+      background: var(--accent-pink);
+      color: white;
+      border: 3px solid white;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: transform 0.2s, background-color 0.2s;
+      z-index: 10000;
+    }
+
+    .video-modal-close:hover {
+      transform: scale(1.15) rotate(90deg);
+      background: #E6005C;
+    }
+
+    .event-card {
+      background: white;
+      border-left: 8px solid var(--accent-green);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+    }
+
+    .event-card-content {
+      flex: 1;
+    }
+
+    .event-thumb-large {
+      width: 340px;
+      max-width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+      border: 3px solid #E0E0E0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .event-date {
+      color: #0E6251;
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .event-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .tag-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: #E8F8F5;
+      color: #117A65;
+      padding: 7px 18px;
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .parent-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .parent-card {
+      background: #F4F6F9;
+      padding: 20px 16px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      border-top: 5px solid var(--primary-blue);
+    }
+
+    .parent-name {
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .parent-role {
+      font-size: 1.4rem;
+      color: var(--deep-blue);
+      font-weight: 800;
+    }
+
+    .survey-box {
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
+      border: 3px solid var(--primary-yellow);
+      border-radius: var(--radius-lg);
+      padding: 25px 35px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .code-badge {
+      display: inline-block;
+      background: #2B2D42;
+      color: var(--primary-yellow);
+      font-family: monospace;
+      font-size: 1.8rem;
+      padding: 6px 26px;
+      border-radius: 10px;
+      margin: 10px 0;
+      letter-spacing: 2px;
+    }
+
+    .bottom-nav {
+      padding: 10px 28px;
+      background: white;
+      border-top: 2px solid #FFE8B5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: none;
+      font-weight: 900;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-prev {
+      background: #E9ECEF;
+      color: var(--text-main);
+    }
+
+    .btn-next {
+      background: var(--primary-orange);
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 159, 28, 0.3);
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      transform: translateY(-2deg);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .page-indicator {
+      font-weight: 900;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 1000;
+        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .sidebar.collapsed {
+        transform: translateX(-100%);
+        margin-left: 0;
+      }
+
+      .side-by-side-layout {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+      }
+
+      .side-illustration-box {
+        flex: none;
+        max-width: 100%;
+      }
+
+      .theme-illustration-large {
+        max-height: 320px;
+      }
+
+      .slideshow-container {
+        height: 280px;
+      }
+
+      .facility-card-row {
+        flex-direction: column;
+      }
+
+      .facility-img-row {
+        width: 100%;
+        height: 220px;
+      }
+
+      .facility-info-row {
+        padding: 16px 20px;
+      }
+
+      .life-card-large {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .life-img-large {
+        width: 100%;
+        height: 200px;
+      }
+
+      .event-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .event-thumb-large {
+        width: 100%;
+        height: 200px;
+      }
+
+      .event-date {
+        justify-content: center;
+      }
+
+      .tag-group {
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .content-header {
+        padding: 10px 14px;
+      }
+
+      .header-info h1 {
+        font-size: 1.15rem;
+      }
+
+      .header-badge {
+        font-size: 0.95rem;
+        padding: 4px 10px;
+      }
+
+      .toggle-sidebar-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        margin-right: 8px;
+      }
+
+      .content-body {
+        padding: 14px 12px;
+      }
+
+      .welcome-title {
+        font-size: 1.6rem;
+      }
+
+      .date-pill {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+
+      .speaker-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px !important;
+      }
+
+      .speaker-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2.2rem;
+      }
+
+      .speaker-name {
+        font-size: 1.6rem;
+      }
+
+      .show-grid-container {
+        grid-template-columns: 1fr;
+      }
+
+      .notice-box-side {
+        padding: 22px 18px;
+      }
+
+      .notice-text {
+        font-size: 1.3rem;
+      }
+
+      .parent-list {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-nav {
+        padding: 8px 12px;
+      }
+
+      .nav-btn {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+      }
+
+      .page-indicator {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .header-info h1 span.title-text {
+        display: none;
+      }
+      
+      .logo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 背景閃爍動態圖案 -->
+  <div class="shapes-container">
+    <i class="fa-solid fa-star bg-shape shape-1"></i>
+    <i class="fa-solid fa-heart bg-shape shape-2"></i>
+    <i class="fa-solid fa-sun bg-shape shape-3"></i>
+    <i class="fa-solid fa-sparkles bg-shape shape-4"></i>
+    <i class="fa-solid fa-star bg-shape shape-5"></i>
+    <i class="fa-solid fa-heart bg-shape shape-6"></i>
+    <i class="fa-solid fa-sparkles bg-shape shape-7"></i>
+    <i class="fa-solid fa-heart bg-shape shape-8"></i>
+    <i class="fa-solid fa-star bg-shape shape-9"></i>
+    <i class="fa-solid fa-heart bg-shape shape-10"></i>
+    <i class="fa-solid fa-star bg-shape shape-11"></i>
+    <i class="fa-solid fa-sparkles bg-shape shape-12"></i>
+    <i class="fa-solid fa-star bg-shape shape-13"></i>
+    <i class="fa-solid fa-heart bg-shape shape-14"></i>
+    <i class="fa-solid fa-star bg-shape shape-15"></i>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- 左側目錄 Sidebar -->
+    <aside class="sidebar collapsed" id="sidebar">
+      <div class="sidebar-header">
+        <img src="logo1.png" alt="禮賢會恩慈學校 LOGO" class="school-mini-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/60/FFD23F/000000?text=RCGS';">
+        <div class="sidebar-title" data-i18n="schoolName">禮賢會恩慈學校</div>
+        <div class="sidebar-subtitle" data-i18n="menuTitle">參觀目錄</div>
+      </div>
+
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link active" onclick="switchPage(1)"><i class="fa-solid fa-hand-wave"></i><span data-i18n="nav1">歡迎到訪</span><span class="page-num">01</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(2)"><i class="fa-solid fa-shield-heart"></i><span data-i18n="nav2">溫馨提示</span><span class="page-num">02</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(3)"><i class="fa-solid fa-microphone-lines"></i><span data-i18n="nav3">校長致詞</span><span class="page-num">03</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(4)"><i class="fa-solid fa-music"></i><span data-i18n="nav4">學生表演</span><span class="page-num">04</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(5)"><i class="fa-solid fa-graduation-cap"></i><span data-i18n="nav5">課程介紹</span><span class="page-num">05</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(6)"><i class="fa-solid fa-school-flag"></i><span data-i18n="nav6">參觀校園</span><span class="page-num">06</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(7)"><i class="fa-solid fa-compact-disc"></i><span data-i18n="nav7">校園生活點滴</span><span class="page-num">07</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(8)"><i class="fa-solid fa-user-gear"></i><span data-i18n="nav8">學生支援介紹</span><span class="page-num">08</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(9)"><i class="fa-solid fa-calendar-star"></i><span data-i18n="nav9">活動推介</span><span class="page-num">09</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(10)"><i class="fa-solid fa-comments"></i><span data-i18n="nav10">家長分享</span><span class="page-num">10</span></a></li>
+        <li class="nav-item"><a class="nav-link" onclick="switchPage(11)"><i class="fa-solid fa-clipboard-question"></i><span data-i18n="nav11">問卷與致謝</span><span class="page-num">11</span></a></li>
+      </ul>
+    </aside>
+
+    <!-- 右側主要內容 display area -->
+    <main class="main-wrapper">
+      
+      <!-- 右側頂部 Title Bar -->
+      <header class="content-header">
+        <div style="display: flex; align-items: center; overflow: hidden;">
+          <button class="toggle-sidebar-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+            <span id="toggle-btn-text" data-i18n="showMenu">展示目錄</span>
+          </button>
+          <div class="header-info">
+            <h1 id="header-page-title"><i class="fa-solid fa-house-smile" style="color:var(--primary-orange);"></i> <span class="title-text">歡迎到訪 禮賢會恩慈學校</span></h1>
+          </div>
+        </div>
+
+        <div class="header-right-tools">
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="btn-lang-zh" onclick="switchLanguage('zh')">繁</button>
+            <button class="lang-btn" id="btn-lang-cn" onclick="switchLanguage('cn')">簡</button>
+            <button class="lang-btn" id="btn-lang-en" onclick="switchLanguage('en')">English</button>
+          </div>
+          <span class="header-badge" id="header-page-badge">Page 1 of 11</span>
+        </div>
+      </header>
+
+      <!-- 內容切換區域 -->
+      <div class="content-body" id="content-body">
+
+        <!-- Page 1: 歡迎到訪 -->
+        <div class="page-pane active" id="page-1">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box slideshow-container">
+              <img src="a1.jpg" id="slide-a1" alt="主題插畫 a1" class="theme-illustration-large slide-img active-slide" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FFD23F/333333?text=Illustration+a1.jpg';">
+              <img src="a1a.jpg" id="slide-a1a" alt="主題插畫 a1a" class="theme-illustration-large slide-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FF70A6/FFFFFF?text=Illustration+a1a.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="card welcome-card">
+                <img src="logo1.png" alt="禮賢會恩慈學校 LOGO" style="width: 80px; margin-bottom: 8px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/80/FFD23F/000000?text=RCGS+Logo';">
+                <h2 class="welcome-title" data-i18n="p1_title">🤗 歡迎到訪 禮賢會恩慈學校</h2>
+                <div class="date-pill">
+                  <i class="fa-regular fa-calendar-check"></i> <span data-i18n="p1_date">參觀日期︰2026年10月28日 (星期三)</span>
+                </div>
+
+                <div style="margin-top: 10px;">
+                  <h3 style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 900;" data-i18n="p1_orgs">蒞臨參觀機構</h3>
+                  <div class="logo-grid">
+                    <div class="logo-item">
+                      <img src="logo2.png" alt="保良局 LOGO" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/80/FF70A6/FFFFFF?text=PLK';">
+                      <div class="logo-name" data-i18n="p1_org1">保良局</div>
+                    </div>
+                    <div class="logo-item">
+                      <img src="logo3.png" alt="香港路德會社會服務處 LOGO" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/80/FF9F1C/FFFFFF?text=Lutheran';">
+                      <div class="logo-name" data-i18n="p1_org2">香港路德會社會服務處</div>
+                    </div>
+                    <div class="logo-item">
+                      <img src="logo4.png" alt="鄰舍輔導會 LOGO" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/80/4EA8DE/FFFFFF?text=NAAC';">
+                      <div class="logo-name" data-i18n="p1_org3">鄰舍輔導會</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2: 溫馨提示 -->
+        <div class="page-pane" id="page-2">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a2.jpg" alt="主題插畫 a2" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FF70A6/FFFFFF?text=Illustration+a2.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="notice-box-side">
+                <i class="fa-solid fa-camera-slash notice-icon"></i>
+                <h2 style="font-size: 2.2rem; color: #800020; font-weight: 900; margin-bottom: 12px;" data-i18n="p2_title">💗溫馨提示</h2>
+                <p class="notice-text" data-i18n="p2_desc">
+                  為保障學生個人私隱，<br>參觀期間請勿拍攝或攝錄學生，<br>謝謝閣下的合作與體諒！
+                </p>
+
+                <a href="#" target="_blank" class="notice-link-btn" title="前往相關連結">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span data-i18n="p2_link">相關連結</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 3: 校長致詞 -->
+        <div class="page-pane" id="page-3">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a3.jpg" alt="主題插畫 a3" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/4EA8DE/FFFFFF?text=Illustration+a3.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="card speaker-card" style="padding: 25px 20px;">
+                <div class="speaker-avatar">
+                  <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div>
+                  <div class="speaker-title"><i class="fa-solid fa-quote-left"></i> <span data-i18n="p3_welcome">歡迎詞</span></div>
+                  <div class="speaker-name" data-i18n="p3_name">謝慶生校長致詞</div>
+                  <p style="color: var(--text-muted); font-size: 1.3rem; font-weight: 800; line-height: 1.6; margin-top: 12px;" data-i18n="p3_desc">
+                    感謝各位家長及機構代表蒞臨本校🤗
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 4: 學生表演 -->
+        <div class="page-pane" id="page-4">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a4.jpg" alt="主題插畫 a4" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FF9F1C/FFFFFF?text=Illustration+a4.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="show-card-side" style="margin-bottom: 12px; padding: 12px 20px;">
+                <h2 class="show-title" style="font-size: 1.5rem; margin-bottom: 0;" data-i18n="p4_song">表演曲目：《I Love You》</h2>
+              </div>
+
+              <div class="show-grid-container">
+                <div class="show-card-column">
+                  <img src="pp1.jpg" alt="樂器合奏" class="life-img-large" style="width: 100%; height: 200px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/FFD23F/333333?text=pp1.jpg';">
+                  <div style="margin-top: 10px;">
+                    <div class="facility-name" style="font-size: 1.4rem; margin-bottom: 4px;" data-i18n="p4_p1_title">🎻 樂器合奏</div>
+                    <div class="facility-desc" style="font-size: 1.1rem;" data-i18n="p4_p1_desc">學生演奏音樂，展現音樂才能</div>
+                  </div>
+                </div>
+
+                <div class="show-card-column">
+                  <img src="pp2.jpg" alt="歌唱表演" class="life-img-large" style="width: 100%; height: 200px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/FF70A6/FFFFFF?text=pp2.jpg';">
+                  <div style="margin-top: 10px;">
+                    <div class="facility-name" style="font-size: 1.4rem; margin-bottom: 4px;" data-i18n="p4_p2_title">🎤 歌唱表演</div>
+                    <div class="facility-desc" style="font-size: 1.1rem;" data-i18n="p4_p2_desc">展現自信，傳遞溫馨與快樂</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 5: 學校介紹-課程 -->
+        <div class="page-pane" id="page-5">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a5.jpg" alt="主題插畫 a5" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/06D6A0/FFFFFF?text=Illustration+a5.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="card speaker-card" style="border-color: #A0E7E5; background: linear-gradient(135deg, #E8F8F5 0%, #FFFFFF 100%); padding: 25px 20px;">
+                <div class="speaker-avatar" style="background: var(--accent-green);">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+                <div>
+                  <div class="speaker-title" style="color: #117A65;" data-i18n="p5_title">學校介紹 — 班級與課程</div>
+                  <div class="speaker-name" data-i18n="p5_name">曾穎斯課程主任</div>
+                  <p style="color: var(--text-muted); font-size: 1.3rem; font-weight: 800; line-height: 1.6; margin-top: 12px;" data-i18n="p5_desc">
+                    為您詳細介紹本校班級結構及課程特色，讓學生在關愛與啟發並重的學習環境中盡展潛能。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 6: 參觀校園設施 -->
+        <div class="page-pane" id="page-6">
+          <div class="facility-header-box">
+            <img src="a6.jpg" alt="參觀校園主題插圖 a6" class="facility-illustration-top" onerror="this.onerror=null; this.src='https://via.placeholder.com/580x280/4EA8DE/FFFFFF?text=Illustration+a6.jpg';">
+          </div>
+
+          <div class="facility-single-column">
+            <div class="facility-card-row">
+              <img src="p1.jpg" alt="小一觀課" class="facility-img-row" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x250/FF9F1C/FFFFFF?text=p1.jpg';">
+              <div class="facility-info-row">
+                <div class="facility-name" data-i18n="p6_f1_title">小一觀課</div>
+                <div class="facility-desc" data-i18n="p6_f1_desc">JA1 生活教育課 / JA2 人文科</div>
+              </div>
+            </div>
+
+            <div class="facility-card-row">
+              <img src="p2.jpg" alt="美樂室" class="facility-img-row" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x250/FFD23F/333333?text=p2.jpg';">
+              <div class="facility-info-row">
+                <div class="facility-name" data-i18n="p6_f2_title">美樂室</div>
+                <div class="facility-desc" data-i18n="p6_f2_desc">個別化鋼琴輔導，培養學生的專注力及穩定情緒</div>
+              </div>
+            </div>
+
+            <div class="facility-card-row">
+              <img src="p3.jpg" alt="圖書館" class="facility-img-row" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x250/4EA8DE/FFFFFF?text=p3.jpg';">
+              <div class="facility-info-row">
+                <div class="facility-name" data-i18n="p6_f3_title">圖書館</div>
+                <div class="facility-desc" data-i18n="p6_f3_desc">豐富藏書與舒適的閱讀角落，提供多元化的繪本與感官輔助書籍</div>
+              </div>
+            </div>
+
+            <div class="facility-card-row">
+              <img src="p4.jpg" alt="感統室" class="facility-img-row" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x250/FF70A6/FFFFFF?text=p4.jpg';">
+              <div class="facility-info-row">
+                <div class="facility-name" data-i18n="p6_f4_title">感統室 (職業治療)</div>
+                <div class="facility-desc" data-i18n="p6_f4_desc">專業感統訓練設施，促進肢體協調與前庭感覺整合</div>
+              </div>
+            </div>
+
+            <div class="facility-card-row">
+              <img src="p5.jpg" alt="情境室" class="facility-img-row" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x250/06D6A0/FFFFFF?text=p5.jpg';">
+              <div class="facility-info-row">
+                <div class="facility-name" data-i18n="p6_f5_title">情境室 (VR教學及恩慈超市)</div>
+                <div class="facility-desc" data-i18n="p6_f5_desc">沉浸式虛擬現實體驗，模擬真實社區生活</div>
+              </div>
+            </div>
+
+            <div class="facility-card-row">
+              <img src="p6.jpg" alt="恩慈遊戲室" class="facility-img-row" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x250/9B5DE5/FFFFFF?text=p6.jpg';">
+              <div class="facility-info-row">
+                <div class="facility-name" data-i18n="p6_f6_title">恩慈遊戲室</div>
+                <div class="facility-desc" data-i18n="p6_f6_desc">透過遊戲與互動輔具，促進學生情緒抒發與社交溝通表達</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 7: 校園生活點滴 -->
+        <div class="page-pane" id="page-7">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a7.jpg" alt="主題插畫 a7" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FFD23F/333333?text=Illustration+a7.jpg';">
+            </div>
+
+            <div class="side-content-box">
+              <div class="life-card-large">
+                <img src="ppp1.jpg" alt="恩慈一天的生活" class="life-img-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/FFD23F/333333?text=ppp1.jpg';">
+                <div style="flex:1;">
+                  <div class="facility-name" style="font-size: 1.5rem; margin-bottom: 6px;" data-i18n="p7_v1_title">📖 恩慈一天的生活</div>
+                  <div class="facility-desc" style="margin-bottom: 14px; font-size: 1.2rem;" data-i18n="p7_v1_desc">小一新生日常學習與溫馨點滴</div>
+                  <button class="play-btn" onclick="openVideoModal('v1.mp4')">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <span data-i18n="watchVideo">觀看影片</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="life-card-large" style="margin-bottom: 0;">
+                <img src="ppp2.jpg" alt="小二學習成果" class="life-img-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/06D6A0/FFFFFF?text=ppp2.jpg';">
+                <div style="flex:1;">
+                  <div class="facility-name" style="font-size: 1.5rem; margin-bottom: 6px;" data-i18n="p7_v2_title">🏅 小二學習成果</div>
+                  <div class="facility-desc" style="margin-bottom: 14px; font-size: 1.2rem;" data-i18n="p7_v2_desc">展現學生的豐富學習成果與進步成長</div>
+                  <button class="play-btn" style="background: linear-gradient(135deg, #06D6A0, #117A65);" onclick="openVideoModal('v2.mp4')">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <span data-i18n="watchVideo">觀看影片</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 8: 學校介紹-學生支援 -->
+        <div class="page-pane" id="page-8">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a8.jpg" alt="主題插畫 a8" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FF9F1C/FFFFFF?text=Illustration+a8.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="card speaker-card" style="border-color: #FFCC80; background: linear-gradient(135deg, #FFF8E1 0%, #FFFFFF 100%); padding: 25px 20px;">
+                <div class="speaker-avatar" style="background: var(--primary-orange);">
+                  <i class="fa-solid fa-hands-holding-child"></i>
+                </div>
+                <div>
+                  <div class="speaker-title" style="color: #E65100;" data-i18n="p8_title">學校介紹 — 學生支援</div>
+                  <div class="speaker-name" data-i18n="p8_name">李俊傑助理校長</div>
+                  <p style="color: var(--text-muted); font-size: 1.3rem; font-weight: 800; line-height: 1.6; margin-top: 12px;" data-i18n="p8_desc">
+                   為您介紹學校多姿多彩的活動及完善的支援服務，包括由跨專業團隊提供的言語治療、職業治療及自閉輔導等。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 9: 活動推介 -->
+        <div class="page-pane" id="page-9">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a9.jpg" alt="主題插畫 a9" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/06D6A0/FFFFFF?text=Illustration+a9.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="event-card">
+                <img src="aa1.jpg" alt="活動插圖 aa1" class="event-thumb-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/06D6A0/FFFFFF?text=aa1.jpg';">
+                <div class="event-card-content">
+                  <div class="event-date"><i class="fa-solid fa-calendar-days"></i> <span data-i18n="p9_e1_d1">2026年11月24、25日(星期二、三)</span></div>
+                  <div class="event-date"><i class="fa-solid fa-clock"></i> <span>10:00 - 12:00</span></div>
+                  <div class="event-title" data-i18n="p9_e1_t1">1. 家長工作坊</div>
+                  <div class="event-title" data-i18n="p9_e1_t2">2. 恩慈生活體驗日</div>
+                  <div class="tag-group">
+                    <span class="tag" data-i18n="p9_e1_tag1">家長交流</span>
+                    <span class="tag" data-i18n="p9_e1_tag2">體驗活動</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="event-card" style="border-left-color: var(--primary-blue);">
+                <img src="aa2.jpg" alt="活動插圖 aa2" class="event-thumb-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/4EA8DE/FFFFFF?text=aa2.jpg';">
+                <div class="event-card-content">
+                  <div class="event-date" style="color: var(--primary-blue);"><i class="fa-solid fa-calendar-days"></i> <span data-i18n="p9_e2_d1">2026年3月20日(星期六)</span></div>
+                  <div class="event-date" style="color: var(--primary-blue);"><i class="fa-solid fa-clock"></i> <span>09:00 - 12:30</span></div>
+                  <div class="event-title" data-i18n="p9_e2_t1">親子工作坊</div>
+                  <div class="tag-group">
+                    <span class="tag" style="background:#EBF5FF; color:#0077B6;" data-i18n="p9_e2_tag1">親子鋼琴體驗</span>
+                    <span class="tag" style="background:#EBF5FF; color:#0077B6;" data-i18n="p9_e2_tag2">Lego體驗</span>
+                    <span class="tag" style="background:#EBF5FF; color:#0077B6;" data-i18n="p9_e2_tag3">言語治療體驗</span>
+                    <span class="tag" style="background:#EBF5FF; color:#0077B6;" data-i18n="p9_e2_tag4">職業治療體驗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 10: 家長分享 -->
+        <div class="page-pane" id="page-10">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a10.jpg" alt="主題插畫 a10" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/4EA8DE/FFFFFF?text=Illustration+a10.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="card" style="margin-bottom: 20px; text-align: center; padding: 25px;">
+                <span class="card-header-badge"><i class="fa-solid fa-users"></i> <span data-i18n="p10_guests">家長分享嘉賓</span></span>
+                <div class="parent-list" style="margin-top: 15px;">
+                  <div class="parent-card">
+                    <div class="parent-name" data-i18n="p10_p1_name">胡諾樂 家長</div>
+                    <div class="parent-role" data-i18n="p10_p1_role">家教會主席</div>
+                  </div>
+                  <div class="parent-card">
+                    <div class="parent-name" data-i18n="p10_p2_name">白軒 家長</div>
+                    <div class="parent-role" data-i18n="p10_p2_role">家長校董</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" style="text-align: center; background: linear-gradient(135deg, #E3F2FD, #FFFFFF); padding: 25px;">
+                <h3 style="font-size: 2.1rem; font-weight: 900; color: var(--deep-blue);"><i class="fa-solid fa-comments"></i> <span data-i18n="p10_qa_title">小組交流及答問環節</span></h3>
+                <p style="margin-top: 10px; color: var(--text-muted); font-size: 1.5rem; font-weight: 800; line-height: 1.5;" data-i18n="p10_qa_desc">歡迎現場各位提問，由校長及團隊為您解答。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 11: 問卷與致謝 -->
+        <div class="page-pane" id="page-11">
+          <div class="side-by-side-layout">
+            <div class="side-illustration-box">
+              <img src="a11.jpg" alt="主題插畫 a11" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FFD23F/333333?text=Illustration+a11.jpg';">
+            </div>
+            <div class="side-content-box">
+              <div class="survey-box">
+                <h2 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main);" data-i18n="p11_title">🙏參觀問卷</h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; font-weight: 800; margin-top: 10px;" data-i18n="p11_desc">感謝蒞臨本校，請撥冗填寫問卷，以便優化參觀安排</p>
+
+                <div style="margin: 15px 0; font-size: 1.2rem; font-weight: 800;">
+                  <div><span data-i18n="p11_wifi_name">Wifi名稱：</span><strong>RCGS_Guest</strong></div>
+                  <div style="margin-top: 4px;" data-i18n="p11_wifi_pwd">Wifi密碼：</div>
+                  <div class="code-badge">RCGS2026</div>
+                </div>
+
+                <div style="margin-top: 15px; border-top: 2px dashed #FFD23F; padding-top: 15px;">
+                  <h1 style="font-size: 2.6rem; font-weight: 900; color: var(--primary-orange);">謝謝 Thank You!</h1>
+                  <p style="color: var(--text-muted); margin-top: 4px; font-size: 1.2rem; font-weight: 800;" data-i18n="p11_wish">🤗祝願大家有美好愉快的一天 ☀️</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 底部導航 Control Bar -->
+      <footer class="bottom-nav">
+        <button class="nav-btn btn-prev" id="btn-prev" onclick="changePage(-1)">
+          <i class="fa-solid fa-arrow-left"></i> <span data-i18n="prevBtn">上一頁</span>
+        </button>
+
+        <span class="page-indicator" id="page-indicator">Page 1 of 11</span>
+
+        <button class="nav-btn btn-next" id="btn-next" onclick="changePage(1)">
+          <span data-i18n="nextBtn">下一頁</span> <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- 特大號彈出式影片播放視窗 Modal -->
+  <div class="video-modal-overlay" id="videoModal" onclick="closeVideoModal(event)">
+    <div class="video-modal-container" onclick="event.stopPropagation()">
+      <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+      <video id="modalVideoPlayer" controls autoplay style="width:100%; border-radius:18px;">
+        <source id="videoSource" src="" type="video/mp4">
+        您的瀏覽器不支援影片播放。
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // 繁简体算法转换映射表
+    const t2sDict = {
+      '禮': '礼', '賢': '贤', '會': '会', '恩': '恩', '慈': '慈', '學': '学', '校': '校',
+      '參': '参', '觀': '观', '目': '目', '錄': '录', '展': '展', '示': '示', '隱': '隐',
+      '藏': '藏', '頁': '页', '觀': '观', '看': '看', '影': '影', '片': '片', '歡': '欢',
+      '迎': '迎', '到': '到', '訪': '访', '溫': '温', '馨': '馨', '提': '提', '示': '示',
+      '致': '致', '詞': '词', '生': '生', '表': '表', '演': '演', '課': '课', '程': '程',
+      '介': '介', '紹': '绍', '園': '园', '點': '点', '滴': '滴', '支': '支', '援': '援',
+      '動': '动', '推': '推', '分': '分', '享': '享', '問': '问', '卷': '卷', '謝': '谢',
+      '期': '期', '機': '机', '構': '构', '臨': '临', '保': '保', '局': '局', '港': '港',
+      '路': '路', '德': '德', '社': '社', '務': '务', '處': '处', '鄰': '邻', '舍': '舍',
+      '輔': '辅', '導': '导', '障': '障', '個': '个', '人': '人', '私': '私', '隱': '隐',
+      '請': '请', '勿': '勿', '攝': '摄', '閣': '阁', '下': '下', '作': '作', '體': '体',
+      '諒': '谅', '關': '关', '連': '连', '謝': '谢', '慶': '庆', '親': '亲', '曲': '曲',
+      '樂': '乐', '器': '器', '合': '合', '奏': '奏', '專': '专', '註': '注', '歌': '歌',
+      '唱': '唱', '傳': '传', '遞': '递', '樂': '乐', '班': '班', '級': '级', '體': '体',
+      '構': '构', '特': '特', '色': '色', '啟': '启', '發': '发', '潛': '潜', '能': '能',
+      '觀': '观', '美': '美', '鋼': '钢', '琴': '琴', '培': '培', '養': '养', '緒': '绪',
+      '圖': '图', '書': '书', '館': '馆', '豐': '丰', '富': '富', '藏': '藏', '擺': '摆',
+      '繪': '绘', '本': '本', '感': '感', '官': '官', '業': '业', '療': '疗', '設': '设',
+      '施': '施', '促': '促', '進': '进', '肢': '肢', '協': '协', '調': '调', '前': '前',
+      '庭': '庭', '整': '整', '情': '情', '境': '境', '教': '教', '超': '超', '市': '市',
+      '沉': '沉', '浸': '浸', '虛': '虚', '擬': '拟', '實': '实', '擬': '拟', '區': '区',
+      '遊': '游', '戲': '戏', '劃': '划', '抒': '抒', '發': '发', '溝': '沟', '通': '通',
+      '果': '果', '進': '进', '步': '步', '增': '增', '強': '强', '萬': '万', '語': '语',
+      '言': '言', '自': '自', '閉': '闭', '週': '周', '聯': '联', '歡': '欢', '創': '创',
+      '意': '意', '嘉': '嘉', '賓': '宾', '會': '会', '答': '答', '環': '环', '節': '节',
+      '問': '问', '寫': '写', '優': '优', '化': '化', '網': '网', '名': '名', '稱': '称',
+      '密': '密', '碼': '码', '祝': '祝', '願': '愿', '快': '快', '樂': '乐', '數': '数',
+      '據': '据', '庫': '库', '詞': '词', '張': '张', '穎': '颖', '斯': '斯', '歷': '历',
+      '顯': '显', '發': '发', '揮': '挥', '質': '质', '務': '务', '滿': '满'
+    };
+
+    function toSimplified(text) {
+      if (!text) return text;
+      let result = '';
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        result += t2sDict[char] || char;
+      }
+      return result;
+    }
+
+    let currentLang = 'zh'; // 'zh' = 繁體, 'cn' = 簡體, 'en' = English
+
+    /* 全頁雙語/多語數據庫 */
+    const i18nData = {
+      zh: {
+        schoolName: "禮賢會恩慈學校",
+        menuTitle: "參觀目錄",
+        showMenu: "展示目錄",
+        hideMenu: "隱藏目錄",
+        prevBtn: "上一頁",
+        nextBtn: "下一頁",
+        watchVideo: "觀看影片",
+        nav1: "歡迎到訪",
+        nav2: "溫馨提示",
+        nav3: "校長致詞",
+        nav4: "學生表演",
+        nav5: "課程介紹",
+        nav6: "參觀校園",
+        nav7: "校園生活點滴",
+        nav8: "學生支援介紹",
+        nav9: "活動推介",
+        nav10: "家長分享",
+        nav11: "問卷與致謝",
+        p1_title: "🤗 歡迎到訪 禮賢會恩慈學校",
+        p1_date: "參觀日期︰2026年10月28日 (星期三)",
+        p1_orgs: "蒞臨參觀機構",
+        p1_org1: "保良局",
+        p1_org2: "香港路德會社會服務處",
+        p1_org3: "鄰舍輔導會",
+        p2_title: "💗溫馨提示",
+        p2_desc: "為保障學生個人私隱，<br>參觀期間請勿拍攝或攝錄學生，<br>謝謝閣下的合作與體諒！",
+        p2_link: "相關連結",
+        p3_welcome: "歡迎詞",
+        p3_name: "謝慶生校長致詞",
+        p3_desc: "感謝各位家長及機構代表蒞臨本校🤗",
+        p4_song: "表演曲目：《I Love You》",
+        p4_p1_title: "🎻 樂器合奏",
+        p4_p1_desc: "學生演奏音樂，展現音樂才能",
+        p4_p2_title: "🎤 歌唱表演",
+        p4_p2_desc: "展現自信，傳遞溫馨與快樂",
+        p5_title: "學校介紹 — 班級與課程",
+        p5_name: "曾穎斯課程主任",
+        p5_desc: "為您詳細介紹本校班級結構及課程特色，讓學生在關愛與啟發並重的學習環境中盡展潛能。",
+        p6_f1_title: "小一觀課",
+        p6_f1_desc: "JA1 生活教育課 / JA2 人文科",
+        p6_f2_title: "美樂室",
+        p6_f2_desc: "個別化鋼琴輔導，培養學生的專注力及穩定情緒",
+        p6_f3_title: "圖書館",
+        p6_f3_desc: "豐富藏書與舒適的閱讀角落，提供多元化的繪本與感官輔助書籍",
+        p6_f4_title: "感統室 (職業治療)",
+        p6_f4_desc: "專業感統訓練設施，促進肢體協調與前庭感覺整合",
+        p6_f5_title: "情境室 (VR教學及恩慈超市)",
+        p6_f5_desc: "沉浸式虛擬現實體驗，模擬真實社區生活",
+        p6_f6_title: "恩慈遊戲室",
+        p6_f6_desc: "透過遊戲與互動輔具，促進學生情緒抒發與社交溝通表達",
+        p7_v1_title: "📖 恩慈一天的生活",
+        p7_v1_desc: "小一新生日常學習與溫馨點滴",
+        p7_v2_title: "🏅 小二學習成果",
+        p7_v2_desc: "展現學生的豐富學習成果與進步成長",
+        p8_title: "學校介紹 — 學生支援",
+        p8_name: "李俊傑助理校長",
+        p8_desc: "為您介紹學校多姿多彩的活動及完善的支援服務，包括由跨專業團隊提供的言語治療、職業治療及自閉輔導等。",
+        p9_e1_d1: "2026年11月24、25日(星期二、三)",
+        p9_e1_t1: "1. 家長工作坊",
+        p9_e1_t2: "2. 恩慈生活體驗日",
+        p9_e1_tag1: "家長交流",
+        p9_e1_tag2: "體驗活動",
+        p9_e2_d1: "2026年3月20日(星期六)",
+        p9_e2_t1: "親子工作坊",
+        p9_e2_tag1: "親子鋼琴體驗",
+        p9_e2_tag2: "Lego體驗",
+        p9_e2_tag3: "言語治療體驗",
+        p9_e2_tag4: "職業治療體驗",
+        p10_guests: "家長分享嘉賓",
+        p10_p1_name: "胡諾樂 家長",
+        p10_p1_role: "家教會主席",
+        p10_p2_name: "白軒 家長",
+        p10_p2_role: "家長校董",
+        p10_qa_title: "小組交流及答問環節",
+        p10_qa_desc: "歡迎現場各位提問，由校長及團隊為您解答。",
+        p11_title: "🙏參觀問卷",
+        p11_desc: "感謝蒞臨本校，請撥冗填寫問卷，以便優化參觀安排",
+        p11_wifi_name: "Wifi名稱：",
+        p11_wifi_pwd: "Wifi密碼：",
+        p11_wish: "🤗祝願大家有美好愉快的一天 ☀️"
+      },
+      en: {
+        schoolName: "Rhenish Church Grace School",
+        menuTitle: "Visit Menu",
+        showMenu: "Show Menu",
+        hideMenu: "Hide Menu",
+        prevBtn: "Previous",
+        nextBtn: "Next",
+        watchVideo: "Watch Video",
+        nav1: "Welcome",
+        nav2: "Warm Reminder",
+        nav3: "Principal's Speech",
+        nav4: "Student Performance",
+        nav5: "Curriculum Intro",
+        nav6: "Campus Tour",
+        nav7: "School Life Highlights",
+        nav8: "Student Support",
+        nav9: "Recommended Activities",
+        nav10: "Parents Sharing",
+        nav11: "Survey & Thanks",
+        p1_title: "🤗 Welcome to Rhenish Church Grace School",
+        p1_date: "Visit Date: October 28, 2026 (Wednesday)",
+        p1_orgs: "Visiting Organizations",
+        p1_org1: "Po Leung Kuk",
+        p1_org2: "Hong Kong Lutheran Social Service",
+        p1_org3: "The Neighbourhood Advice-Action Council",
+        p2_title: "💗 Warm Reminder",
+        p2_desc: "To protect student privacy,<br>please do not take photos or videos of students during the visit.<br>Thank you for your cooperation and understanding!",
+        p2_link: "Related Link",
+        p3_welcome: "Welcome Speech",
+        p3_name: "Speech by Principal Tse Hing Sang",
+        p3_desc: "Thank you all parents and organization representatives for visiting our school 🤗",
+        p4_song: "Performance Song: 《I Love You》",
+        p4_p1_title: "🎻 Instrumental Ensemble",
+        p4_p1_desc: "Students play musical instruments, showcasing their musical talents",
+        p4_p2_title: "🎤 Vocal Performance",
+        p4_p2_desc: "Showcasing confidence and spreading warmth and happiness",
+        p5_title: "School Intro — Classes & Curriculum",
+        p5_name: "Ms. Tsang Wing Sze (Curriculum Director)",
+        p5_desc: "Introducing our class structure and curriculum characteristics, enabling students to reach their full potential in a caring and inspiring learning environment.",
+        p6_f1_title: "Primary 1 Class Observation",
+        p6_f1_desc: "JA1 Life Education / JA2 Humanities",
+        p6_f2_title: "Grace Joy Room",
+        p6_f2_desc: "Individualized piano guidance to cultivate concentration and emotional stability",
+        p6_f3_title: "Library",
+        p6_f3_desc: "Rich collection and cozy reading corners providing picture books and sensory auxiliary books",
+        p6_f4_title: "Sensory Integration Room (OT)",
+        p6_f4_desc: "Professional sensory integration training facilities promoting physical coordination",
+        p6_f5_title: "Scenario Room (VR & Grace Supermarket)",
+        p6_f5_desc: "Immersive VR experience simulating real community life",
+        p6_f6_title: "Grace Playroom",
+        p6_f6_desc: "Promoting emotional expression and social communication through play and aids",
+        p7_v1_title: "📖 A Day at RCGS",
+        p7_v1_desc: "Daily learning and heartwarming moments of P1 newcomers",
+        p7_v2_title: "🏅 P2 Learning Achievements",
+        p7_v2_desc: "Showcasing students' rich learning results and growth",
+        p8_title: "School Intro — Student Support",
+        p8_name: "Mr. Lee Chun Kit (Assistant Principal)",
+        p8_desc: "Introducing colorful activities and comprehensive support services, including speech therapy, occupational therapy, and autism counseling.",
+        p9_e1_d1: "Nov 24 & 25, 2026 (Tue, Wed)",
+        p9_e1_t1: "1. Parent Workshop",
+        p9_e1_t2: "2. Grace Life Experience Day",
+        p9_e1_tag1: "Parent Exchange",
+        p9_e1_tag2: "Experiential Activity",
+        p9_e2_d1: "March 20, 2026 (Saturday)",
+        p9_e2_t1: "Parent-Child Workshop",
+        p9_e2_tag1: "Piano Experience",
+        p9_e2_tag2: "Lego Experience",
+        p9_e2_tag3: "Speech Therapy",
+        p9_e2_tag4: "Occupational Therapy",
+        p10_guests: "Parent Guest Speakers",
+        p10_p1_name: "Mr./Ms. Wu Nuole",
+        p10_p1_role: "PTA Chairman",
+        p10_p2_name: "Mr./Ms. Bai Xuan",
+        p10_p2_role: "Parent Manager",
+        p10_qa_title: "Group Exchange & Q&A Session",
+        p10_qa_desc: "Questions are welcome! Our principal and team will answer them on site.",
+        p11_title: "🙏 Visit Questionnaire",
+        p11_desc: "Thank you for visiting. Please take a moment to fill out the survey to help us improve.",
+        p11_wifi_name: "Wi-Fi Name: ",
+        p11_wifi_pwd: "Wi-Fi Password: ",
+        p11_wish: "🤗 Wishing everyone a wonderful day! ☀️"
+      }
+    };
+
+    const pageTitles = {
+      zh: [
+        "歡迎到訪禮賢會恩慈學校",
+        "參觀注意事項與溫馨提示",
+        "校長致詞 - 謝慶生校長",
+        "學生表演 - 樂器合奏與歌唱",
+        "學校介紹 - 課程特色 (曾穎斯主任)",
+        "參觀校園",
+        "校園生活點滴",
+        "學校介紹 - 學生支援 (李俊傑助理校長)",
+        "活動推介",
+        "家長分享與小組交流",
+        "參觀問卷與致謝"
+      ],
+      en: [
+        "Welcome to Rhenish Church Grace School",
+        "Visit Guidelines & Warm Reminders",
+        "Speech by Principal Tse Hing Sang",
+        "Student Performance - Instrumental & Vocal",
+        "School Intro - Curriculum (Ms. Tsang)",
+        "Campus Tour",
+        "Campus Life Highlights",
+        "School Intro - Student Support (Mr. Li)",
+        "Recommended Activities",
+        "Parent Sharing & Group Exchange",
+        "Questionnaire & Acknowledgments"
+      ]
+    };
+
+    let currentPage = 1;
+    const totalPages = 11;
+
+    /* 語言切換核心邏輯 */
+    function switchLanguage(lang) {
+      currentLang = lang;
+      
+      document.getElementById('btn-lang-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-lang-cn').classList.toggle('active', lang === 'cn');
+      document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
+
+      // 切换 body 的 class，控制字体样式
+      if (lang === 'cn') {
+        document.body.classList.add('lang-cn');
+      } else {
+        document.body.classList.remove('lang-cn');
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        
+        if (lang === 'cn') {
+          // 简体模式：从繁体字典获取原文，并实时转成简体
+          const zhText = i18nData['zh'][key];
+          if (zhText) {
+            elem.innerHTML = toSimplified(zhText);
+          }
+        } else if (i18nData[lang] && i18nData[lang][key]) {
+          elem.innerHTML = i18nData[lang][key];
+        }
+      });
+
+      updatePageUI();
+    }
+
+    /* Page 1 相片 (a1, a1a) 每 3 秒切換輪播 */
+    let currentSlide = 0;
+    function startPage1Slideshow() {
+      const slide1 = document.getElementById('slide-a1');
+      const slide2 = document.getElementById('slide-a1a');
+
+      if (!slide1 || !slide2) return;
+
+      setInterval(() => {
+        if (currentSlide === 0) {
+          slide1.classList.remove('active-slide');
+          slide2.classList.add('active-slide');
+          currentSlide = 1;
+        } else {
+          slide2.classList.remove('active-slide');
+          slide1.classList.add('active-slide');
+          currentSlide = 0;
+        }
+      }, 3000);
+    }
+
+    function openVideoModal(videoSrc) {
+      const modal = document.getElementById('videoModal');
+      const videoPlayer = document.getElementById('modalVideoPlayer');
+      const videoSource = document.getElementById('videoSource');
+
+      videoSource.src = videoSrc;
+      videoPlayer.load();
+      modal.classList.add('active');
+      videoPlayer.play();
+    }
+
+    function closeVideoModal(event) {
+      const modal = document.getElementById('videoModal');
+      const videoPlayer = document.getElementById('modalVideoPlayer');
+
+      videoPlayer.pause();
+      modal.classList.remove('active');
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const btnText = document.getElementById('toggle-btn-text');
+      
+      sidebar.classList.toggle('collapsed');
+      
+      let showText = (currentLang === 'cn') ? toSimplified(i18nData.zh.showMenu) : (i18nData[currentLang] ? i18nData[currentLang].showMenu : i18nData.zh.showMenu);
+      let hideText = (currentLang === 'cn') ? toSimplified(i18nData.zh.hideMenu) : (i18nData[currentLang] ? i18nData[currentLang].hideMenu : i18nData.zh.hideMenu);
+
+      if (sidebar.classList.contains('collapsed')) {
+        btnText.innerText = showText;
+      } else {
+        btnText.innerText = hideText;
+      }
+    }
+
+    function updatePageUI() {
+      const contentBody = document.getElementById('content-body');
+      contentBody.scrollTop = 0;
+
+      document.querySelectorAll('.page-pane').forEach((pane, idx) => {
+        pane.classList.toggle('active', idx + 1 === currentPage);
+      });
+
+      document.querySelectorAll('.nav-link').forEach((link, idx) => {
+        link.classList.toggle('active', idx + 1 === currentPage);
+      });
+
+      let pageTitleStr = "";
+      if (currentLang === 'cn') {
+        pageTitleStr = toSimplified(pageTitles['zh'][currentPage - 1]);
+      } else if (pageTitles[currentLang]) {
+        pageTitleStr = pageTitles[currentLang][currentPage - 1];
+      } else {
+        pageTitleStr = pageTitles['zh'][currentPage - 1];
+      }
+
+      document.getElementById('header-page-title').innerHTML = `
+        <i class="fa-solid fa-star" style="color:var(--primary-orange);"></i> <span class="title-text">${pageTitleStr}</span>
+      `;
+      document.getElementById('header-page-badge').innerText = `Page ${currentPage} of ${totalPages}`;
+      document.getElementById('page-indicator').innerText = `Page ${currentPage} of ${totalPages}`;
+
+      document.getElementById('btn-prev').disabled = (currentPage === 1);
+      document.getElementById('btn-next').disabled = (currentPage === totalPages);
+
+      if (window.innerWidth <= 1024) {
+        const sidebar = document.getElementById('sidebar');
+        if (!sidebar.classList.contains('collapsed')) {
+          toggleSidebar();
+        }
+      }
+    }
+
+    function switchPage(page) {
+      if (page >= 1 && page <= totalPages) {
+        currentPage = page;
+        updatePageUI();
+      }
+    }
+
+    function changePage(delta) {
+      switchPage(currentPage + delta);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updatePageUI();
+      startPage1Slideshow();
+    });
+  </script>
+</body>
+</html>
