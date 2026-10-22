@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- ================= PWA & 行動裝置 App 模式設定 ================= -->
-  <!-- 1. Web App Manifest (使用 Data URI 內嵌，無需額外 JSON 檔案) -->
+  <!-- 1. Web App Manifest (使用 Data URI 內嵌) -->
   <link rel="manifest" href="data:application/manifest+json;utf8,{
     %22name%22:%22禮賢會恩慈學校%22,
     %22short_name%22:%22恩慈學校%22,
@@ -1002,7 +1002,7 @@
       font-size: 1.05rem;
     }
 
-    /* PWA 安裝提示彈窗及按鈕樣式 */
+    /* PWA 安裝提示 Banner */
     .pwa-install-banner {
       position: fixed;
       bottom: 20px;
@@ -1703,7 +1703,7 @@
   </div>
 
   <script>
-    // 繁简体算法转换映射表
+    // 繁簡體算法轉換映射表
     const t2sDict = {
       '禮': '礼', '賢': '贤', '會': '会', '恩': '恩', '慈': '慈', '學': '学', '校': '校',
       '參': '参', '觀': '观', '目': '目', '錄': '录', '展': '展', '示': '示', '隱': '隐',
@@ -1746,9 +1746,8 @@
       return result;
     }
 
-    let currentLang = 'zh'; // 'zh' = 繁體, 'cn' = 簡體, 'en' = English
+    let currentLang = 'zh';
 
-    /* 全頁雙語/多語數據庫 */
     const i18nData = {
       zh: {
         schoolName: "禮賢會恩慈學校",
@@ -1952,7 +1951,6 @@
     let currentPage = 1;
     const totalPages = 11;
 
-    /* 語言切換核心邏輯 */
     function switchLanguage(lang) {
       currentLang = lang;
       
@@ -1960,7 +1958,6 @@
       document.getElementById('btn-lang-cn').classList.toggle('active', lang === 'cn');
       document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
 
-      // 切换 body 的 class，控制字体样式
       if (lang === 'cn') {
         document.body.classList.add('lang-cn');
       } else {
@@ -1969,13 +1966,9 @@
 
       document.querySelectorAll('[data-i18n]').forEach(elem => {
         const key = elem.getAttribute('data-i18n');
-        
         if (lang === 'cn') {
-          // 简体模式：从繁体字典获取原文，并实时转成简体
           const zhText = i18nData['zh'][key];
-          if (zhText) {
-            elem.innerHTML = toSimplified(zhText);
-          }
+          if (zhText) elem.innerHTML = toSimplified(zhText);
         } else if (i18nData[lang] && i18nData[lang][key]) {
           elem.innerHTML = i18nData[lang][key];
         }
@@ -1984,7 +1977,6 @@
       updatePageUI();
     }
 
-    /* Page 1 相片 (a1, a1a) 每 3 秒切換輪播 */
     let currentSlide = 0;
     function startPage1Slideshow() {
       const slide1 = document.getElementById('slide-a1');
@@ -2089,8 +2081,10 @@
       switchPage(currentPage + delta);
     }
 
-    /* ================= PWA 邏輯與 Service Worker 註冊 ================= */
+    /* ================= Chrome & 全平台 PWA 邏輯 ================= */
     let deferredPrompt;
+
+    // 1. 監聽 Chrome 安裝事件
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
@@ -2098,6 +2092,7 @@
       if (banner) banner.classList.add('show');
     });
 
+    // 2. 觸發安裝提示
     const installBtn = document.getElementById('btnPwaInstall');
     if (installBtn) {
       installBtn.addEventListener('click', async () => {
@@ -2120,7 +2115,7 @@
       if (banner) banner.classList.remove('show');
     }
 
-    // 檢查是否為 iOS Safari 且未以 PWA standalone 模式開啟
+    // 3. iOS 提示邏輯
     const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
@@ -2131,29 +2126,15 @@
       }, 2000);
     }
 
-    // 註冊內聯 Service Worker
+    // 4. 正式註冊實體 sw.js (支援 Chrome 同源安全性政策)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        const swCode = `
-          const CACHE_NAME = 'rcgs-pwa-v1';
-          self.addEventListener('install', (e) => {
-            self.skipWaiting();
-          });
-          self.addEventListener('activate', (e) => {
-            e.waitUntil(clients.claim());
-          });
-          self.addEventListener('fetch', (e) => {
-            e.respondWith(
-              fetch(e.request).catch(() => caches.match(e.request))
-            );
-          });
-        `;
-        const blob = new Blob([swCode], { type: 'text/javascript' });
-        const swUrl = URL.createObjectURL(blob);
-        navigator.serviceWorker.register(swUrl).catch(() => {});
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('SW Registered Successfully:', reg.scope))
+          .catch((err) => console.log('SW Registration Failed:', err));
       });
     }
-    /* ================================================================== */
+    /* ============================================================ */
 
     document.addEventListener('DOMContentLoaded', () => {
       updatePageUI();
