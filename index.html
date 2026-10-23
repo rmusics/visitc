@@ -633,9 +633,8 @@
     }
 
     .show-grid-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      display: flex;
+      justify-content: center;
       width: 100%;
     }
 
@@ -649,6 +648,8 @@
       padding: 16px;
       box-shadow: var(--shadow-soft);
       text-align: center;
+      width: 100%;
+      max-width: 420px;
     }
 
     .facility-header-box {
@@ -938,6 +939,39 @@
       justify-content: center;
     }
 
+    .survey-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 15px 0;
+    }
+
+    .qr-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 2px dashed var(--primary-orange);
+      box-shadow: var(--shadow-card);
+      flex-shrink: 0;
+    }
+
+    .qr-code-img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+    }
+
+    .qr-label {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-orange);
+    }
+
     .code-badge {
       display: inline-block;
       background: #2B2D42;
@@ -1208,6 +1242,11 @@
         grid-template-columns: 1fr;
       }
 
+      .survey-layout {
+        flex-direction: column;
+        text-align: center;
+      }
+
       .bottom-nav {
         padding: 8px 12px;
       }
@@ -1424,14 +1463,6 @@
                   <div style="margin-top: 10px;">
                     <div class="facility-name" style="font-size: 1.4rem; margin-bottom: 4px;" data-i18n="p4_p1_title">🎻 樂器合奏</div>
                     <div class="facility-desc" style="font-size: 1.1rem;" data-i18n="p4_p1_desc">學生演奏音樂，展現音樂才能</div>
-                  </div>
-                </div>
-
-                <div class="show-card-column">
-                  <img src="pp2.jpg" alt="歌唱表演" class="life-img-large" style="width: 100%; height: 200px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/FF70A6/FFFFFF?text=pp2.jpg';">
-                  <div style="margin-top: 10px;">
-                    <div class="facility-name" style="font-size: 1.4rem; margin-bottom: 4px;" data-i18n="p4_p2_title">🎤 歌唱表演</div>
-                    <div class="facility-desc" style="font-size: 1.1rem;" data-i18n="p4_p2_desc">展現自信，傳遞溫馨與快樂</div>
                   </div>
                 </div>
               </div>
@@ -1655,12 +1686,15 @@
             <div class="side-content-box">
               <div class="survey-box">
                 <h2 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main);" data-i18n="p11_title">🙏參觀問卷</h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem; font-weight: 800; margin-top: 10px;" data-i18n="p11_desc">感謝蒞臨本校，請撥冗填寫問卷，以便優化參觀安排</p>
-
-                <div style="margin: 15px 0; font-size: 1.2rem; font-weight: 800;">
-                  <div></div>
-
-
+                
+                <div class="survey-layout">
+                  <div style="flex: 1;">
+                    <p style="color: var(--text-muted); font-size: 1.2rem; font-weight: 800; margin-top: 10px;" data-i18n="p11_desc">感謝蒞臨本校，請撥冗填寫問卷，以便優化參觀安排</p>
+                  </div>
+                  <div class="qr-container">
+                    <img src="qr.png" alt="問卷 QR Code" class="qr-code-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/160x160/FF9F1C/FFFFFF?text=QR+Code';">
+                    <span class="qr-label" data-i18n="p11_qr_label">掃瞄填寫問卷</span>
+                  </div>
                 </div>
 
                 <div style="margin-top: 15px; border-top: 2px dashed #FFD23F; padding-top: 15px;">
@@ -1733,7 +1767,8 @@
       '問': '问', '寫': '写', '優': '优', '化': '化', '網': '网', '名': '名', '稱': '称',
       '密': '密', '碼': '码', '祝': '祝', '願': '愿', '快': '快', '樂': '乐', '數': '数',
       '據': '据', '庫': '库', '詞': '词', '張': '张', '穎': '颖', '斯': '斯', '歷': '历',
-      '顯': '显', '發': '发', '揮': '挥', '質': '质', '務': '务', '滿': '满'
+      '顯': '显', '發': '发', '揮': '挥', '質': '质', '務': '务', '滿': '满', '掃': '扫',
+      '瞄': '瞄', '填': '填'
     };
 
     function toSimplified(text) {
@@ -1783,8 +1818,6 @@
         p4_song: "表演曲目：《I Love You》",
         p4_p1_title: "🎻 樂器合奏",
         p4_p1_desc: "學生演奏音樂，展現音樂才能",
-        p4_p2_title: "🎤 歌唱表演",
-        p4_p2_desc: "展現自信，傳遞溫馨與快樂",
         p5_title: "學校介紹 — 班級與課程",
         p5_name: "曾穎斯課程主任",
         p5_desc: "為您詳細介紹本校班級結構及課程特色，讓學生在關愛與啟發並重的學習環境中盡展潛能。",
@@ -1827,8 +1860,7 @@
         p10_qa_desc: "歡迎現場各位提問，由校長及團隊為您解答。",
         p11_title: "🙏參觀問卷",
         p11_desc: "感謝蒞臨本校，請撥冗填寫問卷，以便優化參觀安排",
-        p11_wifi_name: "Wifi名稱：",
-        p11_wifi_pwd: "Wifi密碼：",
+        p11_qr_label: "掃瞄填寫問卷",
         p11_wish: "🤗祝願大家有美好愉快的一天 ☀️",
         pwaPrompt: "將 App 加至主畫面以便快速開啟？",
         pwaInstallBtn: "安裝"
@@ -1867,8 +1899,6 @@
         p4_song: "Performance Song: 《I Love You》",
         p4_p1_title: "🎻 Instrumental Ensemble",
         p4_p1_desc: "Students play musical instruments, showcasing their musical talents",
-        p4_p2_title: "🎤 Vocal Performance",
-        p4_p2_desc: "Showcasing confidence and spreading warmth and happiness",
         p5_title: "School Intro — Classes & Curriculum",
         p5_name: "Ms. Tsang Wing Sze (Curriculum Director)",
         p5_desc: "Introducing our class structure and curriculum characteristics, enabling students to reach their full potential in a caring and inspiring learning environment.",
@@ -1911,8 +1941,7 @@
         p10_qa_desc: "Questions are welcome! Our principal and team will answer them on site.",
         p11_title: "🙏 Visit Questionnaire",
         p11_desc: "Thank you for visiting. Please take a moment to fill out the survey to help us improve.",
-        p11_wifi_name: "Wi-Fi Name: ",
-        p11_wifi_pwd: "Wi-Fi Password: ",
+        p11_qr_label: "Scan to fill survey",
         p11_wish: "🤗 Wishing everyone a wonderful day! ☀️",
         pwaPrompt: "Add App to Home Screen for fast access?",
         pwaInstallBtn: "Install"
@@ -1924,7 +1953,7 @@
         "歡迎到訪禮賢會恩慈學校",
         "參觀注意事項與溫馨提示",
         "校長致詞 - 謝慶生校長",
-        "學生表演 - 樂器合奏與歌唱",
+        "學生表演 - 樂器合奏",
         "學校介紹 - 課程特色 (曾穎斯主任)",
         "參觀校園",
         "校園生活點滴",
@@ -1937,7 +1966,7 @@
         "Welcome to Rhenish Church Grace School",
         "Visit Guidelines & Warm Reminders",
         "Speech by Principal Tse Hing Sang",
-        "Student Performance - Instrumental & Vocal",
+        "Student Performance - Instrumental",
         "School Intro - Curriculum (Ms. Tsang)",
         "Campus Tour",
         "Campus Life Highlights",
@@ -2084,7 +2113,6 @@
     /* ================= Chrome & 全平台 PWA 邏輯 ================= */
     let deferredPrompt;
 
-    // 1. 監聽 Chrome 安裝事件
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
@@ -2092,7 +2120,6 @@
       if (banner) banner.classList.add('show');
     });
 
-    // 2. 觸發安裝提示
     const installBtn = document.getElementById('btnPwaInstall');
     if (installBtn) {
       installBtn.addEventListener('click', async () => {
@@ -2115,7 +2142,6 @@
       if (banner) banner.classList.remove('show');
     }
 
-    // 3. iOS 提示邏輯
     const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
@@ -2126,7 +2152,6 @@
       }, 2000);
     }
 
-    // 4. 正式註冊實體 sw.js (支援 Chrome 同源安全性政策)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
