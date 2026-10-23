@@ -1119,25 +1119,20 @@
       .side-by-side-layout {
         flex-direction: column;
         justify-content: flex-start;
-        gap: 15px;
+        gap: 20px;
       }
 
       .side-illustration-box {
         flex: none;
         max-width: 100%;
-        width: 100%;
       }
 
-      /* Page 2, 8, 10, 11 左側/上方主題圖片在流動端尺寸完全一致 */
       .theme-illustration-large {
-        max-height: 220px;
-        width: auto;
-        max-width: 100%;
-        object-fit: contain;
+        max-height: 320px;
       }
 
       .slideshow-container {
-        height: 220px;
+        height: 280px;
       }
 
       .facility-card-row {
@@ -1180,88 +1175,6 @@
       .tag-group {
         justify-content: center;
       }
-
-      /* 針對 Page 8, 10, 11 在平板/手機螢幕上一頁看完全部內容 (無需上下滾動) */
-      #page-8 .speaker-card {
-        padding: 15px 12px !important;
-        gap: 12px !important;
-      }
-      #page-8 .speaker-avatar {
-        width: 60px !important;
-        height: 60px !important;
-        font-size: 1.8rem !important;
-      }
-      #page-8 .speaker-title {
-        font-size: 1.1rem !important;
-      }
-      #page-8 .speaker-name {
-        font-size: 1.4rem !important;
-      }
-      #page-8 p {
-        font-size: 0.95rem !important;
-        line-height: 1.35 !important;
-        margin-top: 6px !important;
-      }
-
-      #page-10 .card {
-        padding: 10px 12px !important;
-        margin-bottom: 8px !important;
-      }
-      #page-10 .card-header-badge {
-        font-size: 1.05rem !important;
-        padding: 4px 14px !important;
-        margin-bottom: 6px !important;
-      }
-      #page-10 .parent-list {
-        gap: 8px !important;
-        margin-top: 6px !important;
-      }
-      #page-10 .parent-card {
-        padding: 8px 6px !important;
-      }
-      #page-10 .parent-name {
-        font-size: 1.15rem !important;
-        margin-bottom: 2px !important;
-      }
-      #page-10 .parent-role {
-        font-size: 0.95rem !important;
-      }
-      #page-10 h3 {
-        font-size: 1.25rem !important;
-      }
-      #page-10 p {
-        font-size: 0.95rem !important;
-        margin-top: 4px !important;
-      }
-
-      #page-11 .survey-box {
-        padding: 12px 16px !important;
-      }
-      #page-11 .survey-box h2 {
-        font-size: 1.3rem !important;
-      }
-      #page-11 .survey-box p {
-        font-size: 0.95rem !important;
-      }
-      #page-11 .survey-layout {
-        margin: 6px 0 !important;
-        flex-direction: row !important;
-        align-items: center !important;
-      }
-      #page-11 .qr-code-img {
-        width: 100px !important;
-        height: 100px !important;
-      }
-      #page-11 .qr-container {
-        padding: 6px !important;
-      }
-      #page-11 .qr-label {
-        font-size: 0.8rem !important;
-        margin-top: 4px !important;
-      }
-      #page-11 h1 {
-        font-size: 1.5rem !important;
-      }
     }
 
     @media screen and (max-width: 768px) {
@@ -1285,7 +1198,7 @@
       }
 
       .content-body {
-        padding: 10px 10px;
+        padding: 14px 12px;
       }
 
       .welcome-title {
@@ -1300,7 +1213,7 @@
       .speaker-card {
         flex-direction: column;
         text-align: center;
-        padding: 20px 16px;
+        padding: 20px 16px !important;
       }
 
       .speaker-avatar {
@@ -1329,6 +1242,11 @@
         grid-template-columns: 1fr;
       }
 
+      .survey-layout {
+        flex-direction: column;
+        text-align: center;
+      }
+
       .bottom-nav {
         padding: 8px 12px;
       }
@@ -1350,11 +1268,6 @@
       
       .logo-grid {
         grid-template-columns: 1fr;
-      }
-
-      /* 手機上近一步縮小尺寸，確保Page 8, 10, 11免滾動 */
-      .theme-illustration-large {
-        max-height: 160px;
       }
     }
   </style>
