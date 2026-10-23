@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- ================= PWA & 行動裝置 App 模式設定 ================= -->
+  <!-- 1. Web App Manifest (使用 Data URI 內嵌) -->
   <link rel="manifest" href="data:application/manifest+json;utf8,{
     %22name%22:%22禮賢會恩慈學校%22,
     %22short_name%22:%22恩慈學校%22,
@@ -30,11 +31,13 @@
     ]
   }">
 
+  <!-- 2. iOS Safari 專用 App 設定 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="恩慈學校">
   <link rel="apple-touch-icon" href="logo1.png">
 
+  <!-- 3. 移動端主題顏色與 Microsoft Tile 設定 -->
   <meta name="theme-color" content="#FF9F1C">
   <meta name="msapplication-TileColor" content="#FF9F1C">
   <meta name="msapplication-TileImage" content="logo1.png">
@@ -1122,14 +1125,19 @@
       .side-illustration-box {
         flex: none;
         max-width: 100%;
+        width: 100%;
       }
 
+      /* Page 2, 8, 10, 11 左側/上方主題圖片在流動端尺寸完全一致 */
       .theme-illustration-large {
-        max-height: 240px;
+        max-height: 220px;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
       }
 
       .slideshow-container {
-        height: 240px;
+        height: 220px;
       }
 
       .facility-card-row {
@@ -1173,130 +1181,86 @@
         justify-content: center;
       }
 
-      /* ===== Page 8, 10, 11 行動端與平板不滾動適應 ===== */
-      #page-8 .side-illustration-box,
-      #page-10 .side-illustration-box,
-      #page-11 .side-illustration-box {
-        max-height: 160px;
-      }
-
-      #page-8 .theme-illustration-large,
-      #page-10 .theme-illustration-large,
-      #page-11 .theme-illustration-large {
-        max-height: 150px;
-      }
-
+      /* 針對 Page 8, 10, 11 在平板/手機螢幕上一頁看完全部內容 (無需上下滾動) */
       #page-8 .speaker-card {
-        flex-direction: row !important;
-        text-align: left !important;
-        padding: 15px 16px !important;
-        gap: 15px !important;
+        padding: 15px 12px !important;
+        gap: 12px !important;
       }
-
       #page-8 .speaker-avatar {
         width: 60px !important;
         height: 60px !important;
         font-size: 1.8rem !important;
       }
-
       #page-8 .speaker-title {
         font-size: 1.1rem !important;
       }
-
       #page-8 .speaker-name {
         font-size: 1.4rem !important;
       }
-
       #page-8 p {
         font-size: 0.95rem !important;
+        line-height: 1.35 !important;
         margin-top: 6px !important;
-        line-height: 1.4 !important;
       }
 
       #page-10 .card {
-        padding: 12px 14px !important;
-        margin-bottom: 10px !important;
+        padding: 10px 12px !important;
+        margin-bottom: 8px !important;
       }
-
       #page-10 .card-header-badge {
         font-size: 1.05rem !important;
         padding: 4px 14px !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 6px !important;
       }
-
       #page-10 .parent-list {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
-        margin-top: 8px !important;
+        gap: 8px !important;
+        margin-top: 6px !important;
       }
-
       #page-10 .parent-card {
-        padding: 10px 8px !important;
+        padding: 8px 6px !important;
       }
-
       #page-10 .parent-name {
         font-size: 1.15rem !important;
         margin-bottom: 2px !important;
       }
-
       #page-10 .parent-role {
         font-size: 0.95rem !important;
       }
-
       #page-10 h3 {
         font-size: 1.25rem !important;
       }
-
       #page-10 p {
         font-size: 0.95rem !important;
         margin-top: 4px !important;
       }
 
       #page-11 .survey-box {
-        padding: 15px 18px !important;
+        padding: 12px 16px !important;
       }
-
-      #page-11 h2 {
-        font-size: 1.4rem !important;
+      #page-11 .survey-box h2 {
+        font-size: 1.3rem !important;
       }
-
-      #page-11 .survey-layout {
-        flex-direction: row !important;
-        text-align: left !important;
-        gap: 10px !important;
-        margin: 8px 0 !important;
-      }
-
-      #page-11 .survey-layout p {
+      #page-11 .survey-box p {
         font-size: 0.95rem !important;
-        margin-top: 4px !important;
       }
-
-      #page-11 .qr-container {
-        padding: 6px !important;
+      #page-11 .survey-layout {
+        margin: 6px 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
       }
-
       #page-11 .qr-code-img {
         width: 100px !important;
         height: 100px !important;
       }
-
+      #page-11 .qr-container {
+        padding: 6px !important;
+      }
       #page-11 .qr-label {
         font-size: 0.8rem !important;
         margin-top: 4px !important;
       }
-
       #page-11 h1 {
-        font-size: 1.6rem !important;
-      }
-
-      #page-11 .survey-box div[style*="border-top"] {
-        margin-top: 8px !important;
-        padding-top: 8px !important;
-      }
-
-      #page-11 .survey-box p[data-i18n="p11_wish"] {
-        font-size: 0.95rem !important;
+        font-size: 1.5rem !important;
       }
     }
 
@@ -1321,7 +1285,7 @@
       }
 
       .content-body {
-        padding: 10px 12px;
+        padding: 10px 10px;
       }
 
       .welcome-title {
@@ -1361,9 +1325,8 @@
         font-size: 1.3rem;
       }
 
-      .survey-layout {
-        flex-direction: column;
-        text-align: center;
+      .parent-list {
+        grid-template-columns: 1fr;
       }
 
       .bottom-nav {
@@ -1389,17 +1352,9 @@
         grid-template-columns: 1fr;
       }
 
-      /* 手機極小螢幕針對 8, 10, 11 頁面再進一步微調 */
-      #page-8 .side-illustration-box,
-      #page-10 .side-illustration-box,
-      #page-11 .side-illustration-box {
-        max-height: 120px;
-      }
-
-      #page-8 .theme-illustration-large,
-      #page-10 .theme-illustration-large,
-      #page-11 .theme-illustration-large {
-        max-height: 110px;
+      /* 手機上近一步縮小尺寸，確保Page 8, 10, 11免滾動 */
+      .theme-illustration-large {
+        max-height: 160px;
       }
     }
   </style>
