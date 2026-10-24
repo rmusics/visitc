@@ -652,6 +652,54 @@
       max-width: 420px;
     }
 
+    /* ================= Page 4 電腦版專用放大與不滾動優化 ================= */
+    #page-4 .side-content-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    #page-4 .show-card-side {
+      padding: 18px 24px !important;
+      margin-bottom: 16px !important;
+    }
+
+    #page-4 .show-title {
+      font-size: 2.2rem !important;
+      font-weight: 900;
+    }
+
+    #page-4 .show-grid-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    #page-4 .show-card-column {
+      max-width: 520px !important;
+      width: 100%;
+      padding: 20px !important;
+    }
+
+    #page-4 .show-card-column .life-img-large {
+      width: 100% !important;
+      height: 280px !important;
+      object-fit: cover;
+    }
+
+    #page-4 .show-card-column .facility-name {
+      font-size: 2rem !important;
+      margin-top: 10px;
+      margin-bottom: 8px !important;
+    }
+
+    #page-4 .show-card-column .facility-desc {
+      font-size: 1.4rem !important;
+      line-height: 1.4;
+    }
+    /* ==================================================================== */
+
     .facility-header-box {
       text-align: center;
       margin-bottom: 25px;
@@ -1453,16 +1501,16 @@
               <img src="a4.jpg" alt="主題插畫 a4" class="theme-illustration-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/480x350/FF9F1C/FFFFFF?text=Illustration+a4.jpg';">
             </div>
             <div class="side-content-box">
-              <div class="show-card-side" style="margin-bottom: 12px; padding: 12px 20px;">
-                <h2 class="show-title" style="font-size: 1.5rem; margin-bottom: 0;" data-i18n="p4_song">表演曲目：《I Love You》</h2>
+              <div class="show-card-side">
+                <h2 class="show-title" data-i18n="p4_song">表演曲目：《I Love You》</h2>
               </div>
 
               <div class="show-grid-container">
                 <div class="show-card-column">
-                  <img src="pp1.jpg" alt="樂器合奏" class="life-img-large" style="width: 100%; height: 200px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/FFD23F/333333?text=pp1.jpg';">
-                  <div style="margin-top: 10px;">
-                    <div class="facility-name" style="font-size: 1.4rem; margin-bottom: 4px;" data-i18n="p4_p1_title">🎻 樂器合奏</div>
-                    <div class="facility-desc" style="font-size: 1.1rem;" data-i18n="p4_p1_desc">學生演奏音樂，展現音樂才能</div>
+                  <img src="pp1.jpg" alt="樂器合奏" class="life-img-large" onerror="this.onerror=null; this.src='https://via.placeholder.com/340x220/FFD23F/333333?text=pp1.jpg';">
+                  <div>
+                    <div class="facility-name" data-i18n="p4_p1_title">🎻 樂器合奏</div>
+                    <div class="facility-desc" data-i18n="p4_p1_desc">學生演奏音樂，展現音樂才能</div>
                   </div>
                 </div>
               </div>
