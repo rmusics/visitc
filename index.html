@@ -1095,29 +1095,30 @@
       display: flex;
     }
 
-    /* =======================================================
-       專為 Page 4 電腦版面（螢幕寬度 > 1024px）放大優化
-       完全充實、免上下滾動頁面
-    ======================================================= */
-    @media screen and (min-width: 1024px) {
-      #page-4 {
+    /* ================= 電腦版 Page 4 專屬滿版不滾動優化 ================= */
+    @media screen and (min-width: 1025px) {
+      #page-4.active {
         height: 100%;
+        overflow: hidden;
       }
 
       #page-4 .side-by-side-layout {
         height: 100%;
-        max-height: calc(100vh - 200px); /* 扣除 Header 與 Footer */
         align-items: stretch;
+        gap: 25px;
       }
 
       #page-4 .side-illustration-box {
-        flex: 0 0 42%;
+        flex: 0 0 38%;
         max-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      #page-4 .theme-illustration-large {
-        max-height: 100%;
-        max-width: 100%;
+      #page-4 .side-illustration-box .theme-illustration-large {
+        max-height: calc(100vh - 180px);
+        width: 100%;
         object-fit: contain;
       }
 
@@ -1125,59 +1126,54 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         height: 100%;
-        gap: 16px;
+        padding: 5px 0;
       }
 
       #page-4 .show-card-side {
         margin-bottom: 0;
-        padding: 18px 28px;
-        text-align: center;
-        border-width: 4px;
-        border-radius: var(--radius-lg);
+        padding: 16px 24px;
         flex-shrink: 0;
       }
 
       #page-4 .show-title {
-        font-size: 2.3rem;
-        font-weight: 900;
+        font-size: 2.2rem !important;
       }
 
       #page-4 .show-grid-container {
         flex: 1;
         display: flex;
-        align-items: stretch;
-        max-height: calc(100% - 90px);
+        margin-top: 15px;
       }
 
       #page-4 .show-card-column {
         max-width: 100%;
+        width: 100%;
         height: 100%;
-        padding: 22px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        border-width: 4px;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
       }
 
-      #page-4 .show-card-column img.life-img-large {
+      #page-4 .show-card-column .life-img-large {
         width: 100% !important;
-        height: 100% !important;
-        max-height: calc(100% - 110px);
+        height: calc(100vh - 380px) !important;
+        max-height: 380px;
         object-fit: cover;
-        border-radius: var(--radius-md);
+        border-radius: 16px;
       }
 
       #page-4 .show-card-column .facility-name {
-        font-size: 2.1rem !important;
-        margin-top: 10px;
-        margin-bottom: 6px;
+        font-size: 2.2rem !important;
+        margin-top: 15px !important;
+        margin-bottom: 8px !important;
       }
 
       #page-4 .show-card-column .facility-desc {
         font-size: 1.5rem !important;
-        line-height: 1.4;
       }
     }
 
@@ -1355,7 +1351,7 @@
 </head>
 <body>
 
-  <!-- PWA 安裝提示 Banner -->
+  <!-- PWA 安裝提示 Banner (Android / Chrome) -->
   <div class="pwa-install-banner" id="pwaInstallBanner">
     <img src="logo1.png" style="width:36px; height:36px;" alt="Logo" onerror="this.style.display='none'">
     <span style="font-size: 0.95rem; font-weight: 800;" data-i18n="pwaPrompt">將 App 加至主畫面以便快速開啟？</span>
@@ -1818,7 +1814,6 @@
   </div>
 
   <script>
-    // 繁簡體算法轉換映射表
     const t2sDict = {
       '禮': '礼', '賢': '贤', '會': '会', '恩': '恩', '慈': '慈', '學': '学', '校': '校',
       '參': '参', '觀': '观', '目': '目', '錄': '录', '展': '展', '示': '示', '隱': '隐',
@@ -2191,7 +2186,6 @@
       switchPage(currentPage + delta);
     }
 
-    /* ================= Chrome & 全平台 PWA 邏輯 ================= */
     let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -2240,7 +2234,6 @@
           .catch((err) => console.log('SW Registration Failed:', err));
       });
     }
-    /* ============================================================ */
 
     document.addEventListener('DOMContentLoaded', () => {
       updatePageUI();
